@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 50px auto;
+}
+
+
+        .container div{
+            width: 45%;
+    display: flex;
+    justify-content: space-around;
+    background: red;
+    color: white;
+    /* height: 200px; */
+    font-size: 25px;
+    padding: 50px 10px;
+        }
+        .container  .Screen{
+        width: 45%;
+    display: flex;
+    justify-content: space-around;
+    background: rgb(49, 126, 79);
+    color: white;
+    /* height: 200px; */
+    font-size: 25px;
+    padding: 50px 10px;
+     }
+        button{
+            border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+
+    background-color: #0a0a23;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+    cursor: pointer;
+        }
+
+        button:hover{
+            color: black;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="Screen">
+       
+    </div>
+</div>
+<div class="container">
+    <div id="array1"></div>
+    <div id="array2"></div>
+    <div id="array3"></div>
+    <div id="array4"></div>
+    <div id="array5"></div>
+    <div id="array6"></div>
+    <section>
+        <button onclick="random()">Submit</button>
+    </section>
+</div>
+<script>
+
+    function random(){
+    
+    const students=["MOHAMMED  ALFREIJAT",
+    "Ashraf Khalifah",
+    "MOHAMAD  ABDIN",
+    "Ala'  Almuhsen",
+    "MOHAMMAD Al-DO'ERR",
+    "Mohammad Saadeh",
+    "Munib  Al Dalati",
+    "Mohammad abdelhadi",
+    "Abdallah  shehab aldeen",
+    "Qais  Aburisheh",
+    "IHAB  ALOQAILY",
+    "WAJDI ABUARQOB",
+    "karim  khaled",
+    "Ahmad Mohammad",
+    "Obada  Ajouly",
+    "Basil Qarqa",
+    "Hakam  Al-kade",
+    "Suha Badarneh",
+    "Farah  Awwad",
+    "Rawan  Abu Hajer",
+    "Dania Al-Tarifi",
+    "Majd  JADALLAH",
+    "Dania  Atieh",
+    "ShahedAlazzam",
+    "TASNIM  SHEHADEH",
+    "Nadeen  ALERR"
+    
+    ]
+ 
+  
+    for (let i = students.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [students[i], students[j]] = [students[j], students[i]];
+        //     let temp = students[i];
+        // students[i] = students[j];
+        // students[j] = temp;
+    
+    }
+
+    // console.log(students);
+    // console.log([students[0], students[1]] = [students[1], students[0]]);
+
+
+    const arrays = [];
+    let index = 0;
+    
+    for (let i = 0; i < 2; i++) {
+      arrays.push(students.slice(index, index + 5));
+      index += 5;
+    }
+    
+    for (let i = 0; i < 4; i++) {
+      arrays.push(students.slice(index, index + 4));
+      index += 4;
+    }
+ 
+
+    for (let i = 0; i < arrays.length; i++) {
+                const array = arrays[i];
+                const arrayEl = document.getElementById(`array${i+1}`);
+                let html = "";
+                for (let j = 0; j < array.length; j++) {
+                    html += `<tr><td>${array[j]}<br></td></tr>`;
+                }
+                arrayEl.innerHTML = html;
+            }
+        //     if("Mohammad Saadeh"=="table5" || "Mohammad Saadeh"=="table6"){
+        //     random();
+        // }
+
+    
+        }
+
+ 
+
+    
+        </script>
+</body>
+</html>
